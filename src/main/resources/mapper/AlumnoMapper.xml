@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.crud.mapper.AlumnoMapper">
+    <select id="findAll" resultType="Alumno">
+        SELECT * FROM alumnos
+    </select>
+
+    <select id="findById" resultType="Alumno">
+        SELECT * FROM alumnos WHERE id = #{id}
+    </select>
+
+    <insert id="insert" parameterType="Alumno" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO alumnos (nombre, apellido, email, edad, carrera)
+        VALUES (#{nombre}, #{apellido}, #{email}, #{edad}, #{carrera})
+    </insert>
+
+    <update id="update" parameterType="Alumno">
+        UPDATE alumnos
+        SET nombre = #{nombre},
+            apellido = #{apellido},
+            email = #{email},
+            edad = #{edad},
+            carrera = #{carrera}
+        WHERE id = #{id}
+    </update>
+
+    <delete id="delete">
+        DELETE FROM alumnos WHERE id = #{id}
+    </delete>
+</mapper>
