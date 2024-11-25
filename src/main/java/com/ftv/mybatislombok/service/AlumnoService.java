@@ -13,7 +13,7 @@ public class AlumnoService {
     private final AlumnoMapper alumnoMapper;
 
     public List<Alumno> listarTodos() {
-        return alumnoMapper.findAll();
+        return alumnoMapper.getAll();
     }
 
     public Alumno obtenerPorId(Long id) {
